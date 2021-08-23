@@ -100,10 +100,14 @@ public class MapManager : BaseManagerToMono<MapManager>
             return null;
         }
         //对开始点进行设置，并将开始点放入
-        if(_start.father != null)
-        {
-            _start.father = null;
-        }
+         if(_start.father == null)
+         {
+ 
+         }
+         else
+         {
+             _start.father = null;
+         }
         _start.f = 0;
         _start.g = 0;
         _start.h = 0;
