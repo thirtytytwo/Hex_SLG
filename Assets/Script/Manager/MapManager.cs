@@ -9,7 +9,7 @@ public class MapManager : BaseManagerToMono<MapManager>
 
     //A*
     private List<HexInfo> firstPickList = new List<HexInfo>();//第一次筛选的列表
-    private List<HexInfo> secondPickList = new List<HexInfo>();//第二次筛选的列表
+    public List<HexInfo> secondPickList = new List<HexInfo>();//第二次筛选的列表
     private Vector3Int[] aroundHex = { new Vector3Int(-1, 1, 0), new Vector3Int(0, 1, -1), new Vector3Int(1, 0, -1), new Vector3Int(1, -1, 0), new Vector3Int(0, -1, 1), new Vector3Int(-1, 0, 1) };
 
     #region 生成网格方法
@@ -138,7 +138,7 @@ public class MapManager : BaseManagerToMono<MapManager>
             //找到这个点，并令他为start,存入closeList中,并在openList中移除
             secondPickList.Add(firstPickList[0]);
             _start = firstPickList[0];
-            secondPickList.RemoveAt(0);
+            firstPickList.RemoveAt(0);
             //每次循环后判断时候已经找到目标点
             if (_start == end)
             {
@@ -151,7 +151,7 @@ public class MapManager : BaseManagerToMono<MapManager>
                         end = end.father;
                         path.Add(end);
                     }
-                    if(end.father == null)
+                    else if(end.father == null)
                     {
                         path.Reverse();
                         return path;
