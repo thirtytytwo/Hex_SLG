@@ -9,7 +9,7 @@ public class MapManager : BaseManagerToMono<MapManager>
 
     //A*
     private List<HexInfo> firstPickList = new List<HexInfo>();//第一次筛选的列表
-    public List<HexInfo> secondPickList = new List<HexInfo>();//第二次筛选的列表
+    private List<HexInfo> secondPickList = new List<HexInfo>();//第二次筛选的列表
     private Vector3Int[] aroundHex = { new Vector3Int(-1, 1, 0), new Vector3Int(0, 1, -1), new Vector3Int(1, 0, -1), new Vector3Int(1, -1, 0), new Vector3Int(0, -1, 1), new Vector3Int(-1, 0, 1) };
 
     #region 生成网格方法
