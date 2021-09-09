@@ -3,6 +3,17 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class RoundManager :BaseManagerToMono<RoundManager>{
-	//和UI的接口参数
-	//当回合变换后数据参数
+    private List<BaseActorController> players = new List<BaseActorController>();
+    
+    private void Start()
+    {
+        foreach (var item in GameObject.FindGameObjectsWithTag("Player"))
+        {
+            players.Add(item.GetComponent<BaseActorController>());
+        }
+    }
+    public BaseActorController GetPlayerByPlayers()
+    {
+        return players[0];
+    }
 }

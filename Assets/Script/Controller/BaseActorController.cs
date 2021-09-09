@@ -117,9 +117,6 @@ public class BaseActorController : MonoBehaviour
             }
             yield return null;
         }
-        isMoving = false;
-        yield return null;
-
     }
     #endregion
 
